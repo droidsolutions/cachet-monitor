@@ -1,11 +1,13 @@
-module github.com/milkinteractive/cachet-monitor
+module github.com/droidsolutions/cachet-monitor
 
-go 1.13
+go 1.14
 
 require (
+	github.com/castawaylabs/cachet-monitor v1.1.0 // indirect
 	github.com/docopt/docopt-go v0.0.0-20180111231733-ee0de3bc6815
 	github.com/konsorten/go-windows-terminal-sequences v1.0.2 // indirect
 	github.com/miekg/dns v1.1.29
+	github.com/milkinteractive/cachet-monitor v1.1.0 // indirect
 	github.com/mitchellh/mapstructure v1.1.2
 	github.com/sirupsen/logrus v1.5.0
 	github.com/stretchr/objx v0.1.1 // indirect

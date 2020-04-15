@@ -11,8 +11,11 @@ WORKDIR /app
 COPY . .
 # setup build env
 WORKDIR /app/cli
+
+RUN go get -u 
+
 # vendor build only can be executed outside the GOPATH
-RUN go build -mod=vendor .
+RUN go build -mod=mod .
 
 # distribution image
 FROM alpine:3.11

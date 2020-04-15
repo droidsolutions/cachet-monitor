@@ -10,11 +10,11 @@ import (
 )
 
 type CachetMonitor struct {
-	SystemName  string                   `json:"system_name" yaml:"system_name"`
-	DateFormat  string                   `json:"date_format" yaml:"date_format"`
-	SlackWebhook string                  `json:"slack_webhook" yaml:"slack_webhook"`
-	API         CachetAPI                `json:"api"`
-	RawMonitors []map[string]interface{} `json:"monitors" yaml:"monitors"`
+	SystemName   string                   `json:"system_name" yaml:"system_name"`
+	DateFormat   string                   `json:"date_format" yaml:"date_format"`
+	SlackWebhook string                   `json:"slack_webhook" yaml:"slack_webhook"`
+	API          CachetAPI                `json:"api"`
+	RawMonitors  []map[string]interface{} `json:"monitors" yaml:"monitors"`
 
 	Monitors  []MonitorInterface `json:"-" yaml:"-"`
 	Immediate bool               `json:"-" yaml:"-"`
@@ -35,7 +35,7 @@ func (cfg *CachetMonitor) Validate() bool {
 	}
 
 	if len(cfg.API.Token) == 0 || len(cfg.API.URL) == 0 {
-		logrus.Warnf("API URL or API Token missing.\nGet help at https://github.com/castawaylabs/cachet-monitor")
+		logrus.Warnf("API URL or API Token missing.\nGet help at https://github.com/droidsolutions/cachet-monitor")
 		valid = false
 	}
 
@@ -92,6 +92,6 @@ func getTemplateData(monitor *AbstractMonitor) map[string]interface{} {
 
 func MainUrl(cfg *CachetMonitor) string {
 	var url = cfg.API.URL
-	var index = strings.Index(url,"/api/")
+	var index = strings.Index(url, "/api/")
 	return url[0:index]
 }
